@@ -1,0 +1,14 @@
+{
+  "name": "bookstore-rabbitmq-backend",
+  "version": "1.0.0",
+  "description": "Tarea 4 - Bookstore con actualizaciones diferidas mediante RabbitMQ (CloudAMQP)",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "amqplib": "^2.2.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^27.11.0"
+  }
+}

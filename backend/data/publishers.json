@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "publisher": "John Wiley & Sons",
+    "country": "United States",
+    "founded": 1807,
+    "genere": "Technical books",
+    "books": [
+      { "book_id": 1, "title": "Operating System Concepts" }
+    ]
+  },
+  {
+    "id": 2,
+    "publisher": "McGraw-Hill",
+    "country": "United States",
+    "founded": 1888,
+    "genere": "Textbooks",
+    "books": [
+      { "book_id": 2, "title": "Database System Concepts" }
+    ]
+  },
+  {
+    "id": 3,
+    "publisher": "Pearson Education",
+    "country": "United Kingdom",
+    "founded": 1844,
+    "genere": "Education",
+    "books": [
+      { "book_id": 3, "title": "Computer Networks" },
+      { "book_id": 4, "title": "Modern Operating Systems" }
+    ]
+  }
+]

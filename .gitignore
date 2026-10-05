@@ -1,0 +1,9 @@
+# dependencias y artefactos
+node_modules/
+dist/
+
+# secretos locales (NO subir al repositorio)
+.env
+
+# artefactos de netlify
+.netlify/
