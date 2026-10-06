@@ -19,8 +19,10 @@ const seed = require('./seed');
 
 const DATA_DIR = path.join(__dirname, '..', '..', 'data');
 
-// Netlify establece NETLIFY=true solo en produccion.
-const USE_BLOBS = process.env.NETLIFY === 'true' && !process.env.NETLIFY_DEV;
+// En produccion Netlify ejecuta las funciones en AWS Lambda, que
+// establece AWS_LAMBDA_FUNCTION_NAME; netlify dev establece NETLIFY_DEV.
+const USE_BLOBS =
+  !!process.env.AWS_LAMBDA_FUNCTION_NAME && !process.env.NETLIFY_DEV;
 
 let store = null;
 
