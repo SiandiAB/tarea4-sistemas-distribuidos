@@ -24,12 +24,22 @@ const DATA_DIR = path.join(__dirname, '..', '..', 'data');
 const USE_BLOBS =
   !!process.env.AWS_LAMBDA_FUNCTION_NAME && !process.env.NETLIFY_DEV;
 
+// Project ID (Site ID) del sitio en Netlify.
+// El token se inyecta como variable de entorno NETLIFY_BLOBS_TOKEN
+// (Personal Access Token creado en Netlify), porque en algunos sitios
+// la plataforma no inyecta automaticamente el contexto de Blobs.
+const SITE_ID = '05a98040-a3f3-4260-a483-5ec99b6e6209';
+
 let store = null;
 
 function blobStore() {
   if (!store) {
     const { getStore } = require('@netlify/blobs');
-    store = getStore('bookstore-data');
+    store = getStore({
+      name: 'bookstore-data',
+      siteID: SITE_ID,
+      token: process.env.NETLIFY_BLOBS_TOKEN,
+    });
   }
   return store;
 }
