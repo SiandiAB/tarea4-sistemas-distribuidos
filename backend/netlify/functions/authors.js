@@ -24,7 +24,7 @@ exports.handler = async (event) => {
   }
 
   try {
-    const authors = readCollection('authors');
+    const authors = await readCollection('authors');
     const id = resourceId(event);
 
     if (event.httpMethod === 'GET' && !id) {

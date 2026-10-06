@@ -11,11 +11,11 @@ exports.handler = async (event) => {
 
   try {
     const data = JSON.parse(event.body);
-    const books = readCollection('books');
+    const books = await readCollection('books');
 
     const newBook = { ...data, id: nextId(books) };
     books.push(newBook);
-    writeCollection('books', books);
+    await writeCollection('books', books);
 
     return {
       statusCode: 200,

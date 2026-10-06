@@ -24,7 +24,7 @@ exports.handler = async (event) => {
   }
 
   try {
-    const books = readCollection('books');
+    const books = await readCollection('books');
     const id = resourceId(event);
 
     if (event.httpMethod === 'GET' && !id) {

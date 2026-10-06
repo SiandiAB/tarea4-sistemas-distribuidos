@@ -4,6 +4,7 @@ dist/
 
 # secretos locales (NO subir al repositorio)
 .env
+.env.prod
 
 # artefactos de netlify
 .netlify/

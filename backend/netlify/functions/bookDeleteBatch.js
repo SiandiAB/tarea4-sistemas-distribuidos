@@ -11,14 +11,14 @@ exports.handler = async (event) => {
 
   try {
     const id = parseInt(event.path.split('/').pop(), 10);
-    const books = readCollection('books');
+    const books = await readCollection('books');
     const remaining = books.filter((b) => Number(b.id) !== id);
 
     if (remaining.length === books.length) {
       return { statusCode: 404, headers, body: JSON.stringify({ error: 'Book not found' }) };
     }
 
-    writeCollection('books', remaining);
+    await writeCollection('books', remaining);
 
     return {
       statusCode: 200,

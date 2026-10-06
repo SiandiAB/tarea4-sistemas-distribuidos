@@ -14,7 +14,7 @@ exports.handler = async (event) => {
   try {
     const id = parseInt(event.path.split('/').pop(), 10);
     const data = JSON.parse(event.body);
-    const books = readCollection('books');
+    const books = await readCollection('books');
     const index = books.findIndex((b) => Number(b.id) === id);
 
     if (index === -1) {
@@ -22,7 +22,7 @@ exports.handler = async (event) => {
     }
 
     books[index] = { ...books[index], ...data, id: books[index].id };
-    writeCollection('books', books);
+    await writeCollection('books', books);
 
     return {
       statusCode: 200,
