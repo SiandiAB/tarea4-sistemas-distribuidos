@@ -150,6 +150,14 @@ Abra `http://localhost:5050`. El frontend apunta por defecto a
 4. En **Site configuration → Environment variables** agregue:
    - `CLOUDAMQP_URL` = su AMQP URL.
    - `APP_URL` = `https://<su-sitio>.netlify.app`.
+   - `RABBIT_TRANSPORT` = `http` (recomendado en redes que bloquean los
+     puertos AMQP; con `amqp` usa el puerto 5671).
+   - `NETLIFY_BLOBS_TOKEN` = un *personal access token* de Netlify
+     (**User settings → Applications → New access token**), marcado como
+     secreto. En producción las funciones guardan la "base de datos" en
+     **Netlify Blobs** (almacén `bookstore-data`) porque el sistema de
+     archivos de las funciones es efímero; `db.js` usa este token junto con
+     el `siteID` del proyecto.
 
 ### Frontend en un hosting estático
 
